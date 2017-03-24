@@ -28,7 +28,14 @@ public class PageController : MonoBehaviour
 
     /// <summary>
     /// Nextボタンが押されたときに呼ばれる 
-    /// </summary>
+    /// </summary>←詳細を教えてくれる機能
+    /// 
+
+        public void OnScreenButtonTap()
+    {
+        Debug.Log("Screen Tap");
+    }
+   
     public void OnNextButtonTap()
     {
         //ページ数を増やす
