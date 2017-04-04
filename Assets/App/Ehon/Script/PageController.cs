@@ -22,16 +22,20 @@ public class PageController : MonoBehaviour
     /// </summary>
     private void Start()
     {
+        //現在のページ数を設定
         _currentPageNumber = 1;
-        //ヒエラルキー階層の一番下い来る
+        //ヒエラルキー階層の一番下に移動させる
         _currentPage = _pageList[0];
         //現在のページを設定
         _currentPage.transform.SetAsLastSibling();
-        //
-        for (int i = 0; i < _pageList.Count; i++)
+        //全てのページのInitialize関数を呼んであげる
+        foreach (Page page in _pageList)
         {
-            Page page = _pageList[i];
-            page.Initialize(i + 1);
+            //初期化
+            page.Initialize();
+            //関数を登録
+            page.OnEventEndHandler -= OnNextButtonTap;
+            page.OnEventEndHandler += OnNextButtonTap;
         }
     }
 
@@ -44,7 +48,9 @@ public class PageController : MonoBehaviour
 
     public void OnScreenButtonTap()
     {
-        Debug.Log("Screen Tap");
+        //確認用ログ
+        Debug.Log("PageController が Screen Tap を 検知");
+        //現在のページのOnScreenTap を呼ぶ
         _currentPage.OnScreenTap();
     }
 
@@ -53,6 +59,8 @@ public class PageController : MonoBehaviour
     /// </summary>
     public void OnNextButtonTap()
     {
+        //現在のページを初期化
+        _currentPage.Initialize();
         //ページ数を増やす
         _currentPageNumber = Math.Min(_pageList.Count - 1, _currentPageNumber + 1);
         //現在のページを設定
@@ -66,6 +74,8 @@ public class PageController : MonoBehaviour
     /// </summary>
     public void OnBackButtonTap()
     {
+        //現在のページを初期化
+        _currentPage.Initialize();
         //ページ数を増やす
         _currentPageNumber = Math.Max(0, _currentPageNumber - 1);
         //現在のページを設定
