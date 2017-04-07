@@ -92,16 +92,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skeletonDataAsset: {fileID: 11400000, guid: c56c95f23ac8e7d4687d742597449b2b, type: 2}
-  initialSkinName: 62656172
+  initialSkinName: bear
   separatorSlotNames: []
   zSpacing: 0
   renderMeshes: 1
   immutableTriangles: 0
   pmaVertexColors: 1
+  clearStateOnDisable: 0
   calculateNormals: 0
   calculateTangents: 0
   logErrors: 0
   disableRenderingOnOverride: 1
-  _animationName: 69646c65
+  _animationName: idle
   loop: 1
   timeScale: 1
