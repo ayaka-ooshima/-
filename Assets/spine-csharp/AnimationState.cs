@@ -40,9 +40,9 @@ namespace Spine {
 		private readonly HashSet<int> propertyIDs = new HashSet<int>();
 		private readonly ExposedList<Event> events = new ExposedList<Event>();
 		private readonly EventQueue queue;
+
 		private bool animationsChanged;
 		private bool multipleMixing = true;
-
 		/// <summary>
 		/// <para>When false, only two animations can be mixed at once. Interrupting a mix by setting a new animation will choose from the 
 		/// two old animations the one that is closest to being fully mixed in and the other is discarded. Discarding an animation in 
@@ -231,48 +231,31 @@ namespace Spine {
 			var timelines = from.animation.timelines;
 			var timelinesItems = timelines.Items;
 			int timelineCount = timelines.Count;
-			var timelinesFirstItems = from.timelinesFirst.Items;
+			var timelinesFirst = from.timelinesFirst;
+			var timelinesFirstItems = timelinesFirst.Items;
 			var timelinesLastItems = multipleMixing ? null : from.timelinesLast.Items;
-			float alphaBase = from.alpha * entry.mixAlpha, alphaMix = alphaBase * (1 - mix);
-			bool notLastApply = mix < 1; // Candidate for base pose.
+			float alphaBase = from.alpha * entry.mixAlpha;
+			float alphaMix = alphaBase * (1 - mix);
 
 			bool firstFrame = entry.timelinesRotation.Count == 0;
 			if (firstFrame) entry.timelinesRotation.EnsureCapacity(timelines.Count << 1);
 			var timelinesRotation = entry.timelinesRotation.Items;
 
-			if (notLastApply) {
-				for (int i = 0; i < timelineCount; i++) {
-					Timeline timeline = timelinesItems[i];
-					bool setupPose = timelinesFirstItems[i];
-					float alpha = timelinesLastItems != null && setupPose && timelinesLastItems[i]? alphaBase : alphaMix;
-					var rotateTimeline = timeline as RotateTimeline;
-					if (rotateTimeline != null) {
-						ApplyRotateTimeline(rotateTimeline, skeleton, animationTime, alpha, setupPose, timelinesRotation, i << 1, firstFrame);
-					} else {
-						if (!setupPose) {
-							if (!attachments && timeline is AttachmentTimeline) continue;
-							if (!drawOrder && timeline is DrawOrderTimeline) continue;
-						}
-						timeline.Apply(skeleton, animationLast, animationTime, eventBuffer, alpha, setupPose, true);
+			for (int i = 0; i < timelineCount; i++) {
+				Timeline timeline = timelinesItems[i];
+				bool setupPose = timelinesFirstItems[i];
+				float alpha = timelinesLastItems != null && setupPose && !timelinesLastItems[i] ? alphaBase : alphaMix;
+				var rotateTimeline = timeline as RotateTimeline;
+				if (rotateTimeline != null) {
+					ApplyRotateTimeline(rotateTimeline, skeleton, animationTime, alpha, setupPose, timelinesRotation, i << 1, firstFrame);
+				} else {
+					if (!setupPose) {
+						if (!attachments && timeline is AttachmentTimeline) continue;
+						if (!drawOrder && timeline is DrawOrderTimeline) continue;
 					}
-				}
-			} else {
-				for (int i = 0; i < timelineCount; i++) {
-					Timeline timeline = timelinesItems[i];
-					bool setupPose = timelinesFirstItems[i];
-					var rotateTimeline = timeline as RotateTimeline;
-					if (rotateTimeline != null) {
-						ApplyRotateTimeline(rotateTimeline, skeleton, animationTime, alphaMix, setupPose, timelinesRotation, i << 1, firstFrame);
-					} else {
-						if (!setupPose) {
-							if (!attachments && timeline is AttachmentTimeline) continue;
-							if (!drawOrder && timeline is DrawOrderTimeline) continue;
-						}
-						timeline.Apply(skeleton, animationLast, animationTime, eventBuffer, alphaMix, setupPose, true);
-					}
+					timeline.Apply(skeleton, animationLast, animationTime, eventBuffer, alpha, setupPose, true);
 				}
 			}
-
 
 			if (entry.mixDuration > 0 ) QueueEvents(from, animationTime);
 			events.Clear(false);
@@ -428,23 +411,24 @@ namespace Spine {
 				current.mixingFrom = from;
 				current.mixTime = 0;
 
-				TrackEntry mixingFrom = from.mixingFrom;
+				//from.timelinesRotation.Clear();
+				var mixingFrom = from.mixingFrom;
+
 				if (mixingFrom != null && from.mixDuration > 0) {
-					// A mix was interrupted, mix from the closest animation.
-					if (!multipleMixing && from.mixTime / from.mixDuration < 0.5f && mixingFrom.animation != AnimationState.EmptyAnimation) {
-						current.mixingFrom = mixingFrom;
-						mixingFrom.mixingFrom = from;
-						mixingFrom.mixTime = from.mixDuration - from.mixTime;
-						mixingFrom.mixDuration = from.mixDuration;
-						from.mixingFrom = null;
-						from = mixingFrom;
-					}
+					if (multipleMixing) {
+						// The interrupted mix will mix out from its current percentage to zero.
+						current.mixAlpha *= Math.Min(from.mixTime / from.mixDuration, 1);
+					} else {
+						// A mix was interrupted, mix from the closest animation.
+						if (from.mixTime / from.mixDuration < 0.5f && mixingFrom.animation != AnimationState.EmptyAnimation) {
+							current.mixingFrom = mixingFrom;
+							mixingFrom.mixingFrom = from;
+							mixingFrom.mixTime = from.mixDuration - from.mixTime;
+							mixingFrom.mixDuration = from.mixDuration;
+							from.mixingFrom = null;
+							from = mixingFrom;
+						}
 
-					// The interrupted mix will mix out from its current percentage to zero.
-					current.mixAlpha *= Math.Min(from.mixTime / from.mixDuration, 1);
-
-					// End the other animation after it is applied one last time.
-					if (!multipleMixing) {
 						from.mixAlpha = 0;
 						from.mixTime = 0;
 						from.mixDuration = 0;
@@ -661,10 +645,11 @@ namespace Spine {
 				TrackEntry entry = tracks.Items[i];
 				if (entry == null) continue;
 
-				// Store non-mixingFrom property IDs but don't bother setting their timelinesLast.
-				var timelines = entry.animation.timelines.Items;
-				for (int ii = 0, nn = entry.animation.timelines.Count; ii < nn; ii++)
-					propertyIDs.Add(timelines[ii].PropertyId);
+				// Store properties for non-mixingFrom entry but don't set timelinesLast, which is only used for mixingFrom entries.
+				var timelines = entry.animation.timelines;
+				var timelinesItems = timelines.Items;
+				for (int ii = 0, nn = timelines.Count; ii < nn; ii++)
+					propertyIDs.Add(timelinesItems[ii].PropertyId);
 
 				entry = entry.mixingFrom;
 				while (entry != null) {
@@ -688,8 +673,8 @@ namespace Spine {
 			var usage = entry.timelinesFirst.Items;
 			var timelinesItems = timelines.Items;
 			for (int i = 0; i < n; i++) {
-				usage[i] = propertyIDs.Add(timelinesItems[i].PropertyId);
-				//usage[i] = true;
+				propertyIDs.Add(timelinesItems[i].PropertyId);
+				usage[i] = true;
 			}
 		}
 
@@ -703,6 +688,7 @@ namespace Spine {
 			var propertyIDs = this.propertyIDs;
 			var timelines = entry.animation.timelines;
 			int n = timelines.Count;
+			//var usageArray = entry.timelinesFirst;
 			usageArray.EnsureCapacity(n);
 			var usage = usageArray.Items;
 			var timelinesItems = timelines.Items;
@@ -892,6 +878,11 @@ namespace Spine {
 		/// <see cref="AnimationStateData"/> based on the animation before this animation (if any).
 		/// 
 		/// The mix duration must be set before <see cref="AnimationState.Update(float)"/> is next called.
+		/// <para>
+		/// When using <seealso cref="AnimationState.AddAnimation(int, Animation, bool, float)"/> with a 
+		/// <code>delay</code> <seealso cref="Delay"/> is set using the mix duration from the <see cref=" AnimationStateData"/>
+		/// </para>
+		/// 
 		/// </summary>
 		public float MixDuration { get { return mixDuration; } set { mixDuration = value; } }
 
@@ -1057,18 +1048,18 @@ namespace Spine {
 			Reset(obj);
 		}
 
-		//		protected void FreeAll (List<T> objects) {
-		//			if (objects == null) throw new ArgumentNullException("objects", "objects cannot be null.");
-		//			var freeObjects = this.freeObjects;
-		//			int max = this.max;
-		//			for (int i = 0; i < objects.Count; i++) {
-		//				T obj = objects[i];
-		//				if (obj == null) continue;
-		//				if (freeObjects.Count < max) freeObjects.Push(obj);
-		//				Reset(obj);
-		//			}
-		//			Peak = Math.Max(Peak, freeObjects.Count);
-		//		}
+//		protected void FreeAll (List<T> objects) {
+//			if (objects == null) throw new ArgumentNullException("objects", "objects cannot be null.");
+//			var freeObjects = this.freeObjects;
+//			int max = this.max;
+//			for (int i = 0; i < objects.Count; i++) {
+//				T obj = objects[i];
+//				if (obj == null) continue;
+//				if (freeObjects.Count < max) freeObjects.Push(obj);
+//				Reset(obj);
+//			}
+//			Peak = Math.Max(Peak, freeObjects.Count);
+//		}
 
 		public void Clear () {
 			freeObjects.Clear();
