@@ -53,21 +53,24 @@ public abstract class EventBase : MonoBehaviour
 	/// </summary>
 	protected IEnumerator Execute_ ()
 	{
-		//遅延待機
-		yield return new WaitForSeconds (_delay);	
+        //set true 
+        _isEventExecuting = true;
 
-		OnExecute ();
+        //遅延待機
+        yield return new WaitForSeconds(_delay);
 
-		//実行待機
-		yield return new WaitForSeconds (_duration);	
+        OnExecute();
 
-		Complete ();
-	}
+        //実行待機
+        yield return new WaitForSeconds(_duration);
 
-	/// <summary>
-	/// Raises the execute event.
-	/// </summary>
-	protected abstract void OnExecute ();
+        Complete();
+    }
+
+    /// <summary>
+    /// Raises the execute event.
+    /// </summary>
+    protected abstract void OnExecute ();
 
 	/// <summary>
 	/// Raises the complete event.

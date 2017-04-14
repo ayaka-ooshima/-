@@ -31,12 +31,23 @@ public class PageController : MonoBehaviour
         //全てのページのInitialize関数を呼んであげる
         foreach (Page page in _pageList)
         {
-            //初期化
-            page.Initialize();
             //関数を登録
             page.OnEventEndHandler -= OnNextButtonTap;
             page.OnEventEndHandler += OnNextButtonTap;
+            //初期化
+            page.Initialize();
+            //1ページ目なら
+            if (page.PageNum == 1)
+            {
+                page.gameObject.SetActive(true);
+            }
+            else
+            {
+                page.gameObject.SetActive(false);
+            }
         }
+
+
     }
 
     //====ボタンのイベントを受け取る===//
@@ -57,14 +68,21 @@ public class PageController : MonoBehaviour
     /// <summary>
     /// Nextボタンが押されたときに呼ばれる
     /// </summary>
+    /// <summary>
+    /// Nextボタンが押されたときに呼ばれる
+    /// </summary>
     public void OnNextButtonTap()
     {
-        //現在のページを初期化
+        //前のページを初期化
         _currentPage.Initialize();
+        //前のページを非アクティブにする(追記)
+        _currentPage.gameObject.SetActive(false);
         //ページ数を増やす
         _currentPageNumber = Math.Min(_pageList.Count - 1, _currentPageNumber + 1);
         //現在のページを設定
         _currentPage = _pageList[_currentPageNumber];
+        //現在のページをアクティブにする(追記)
+        _currentPage.gameObject.SetActive(true);
         //ヒエラルキー階層の一番下に来る
         _currentPage.transform.SetAsLastSibling();
     }
@@ -76,10 +94,14 @@ public class PageController : MonoBehaviour
     {
         //現在のページを初期化
         _currentPage.Initialize();
+        //前のページを非アクティブにする(追記)
+        _currentPage.gameObject.SetActive(false);
         //ページ数を増やす
         _currentPageNumber = Math.Max(0, _currentPageNumber - 1);
         //現在のページを設定
         _currentPage = _pageList[_currentPageNumber];
+        //現在のページをアクティブにする(追記)
+        _currentPage.gameObject.SetActive(true);
         //ヒエラルキー階層の一番下に来る
         _currentPage.transform.SetAsLastSibling();
     }

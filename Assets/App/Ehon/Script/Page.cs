@@ -11,11 +11,16 @@ public class Page : MonoBehaviour
 	/// </summary>
 	[SerializeField]
 	private int _pageNum;
+    //
+    public int PageNum
+    {
+        get { return _pageNum; }
+    }
 
-	/// <summary>
-	/// 現在のイベント番号 
-	/// </summary>
-	[SerializeField]
+    /// <summary>
+    /// 現在のイベント番号 
+    /// </summary>
+    [SerializeField]
 	private int _currentEventNumber;
 
 	[SerializeField]
