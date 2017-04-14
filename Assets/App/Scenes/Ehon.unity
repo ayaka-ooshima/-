@@ -887,11 +887,11 @@ Prefab:
         type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 2d8df118dd5334f45b26239d0d18ac0e, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 114000012923309650, guid: 9fefb12acbd058949b3979fe292ed786,
         type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 33000013057856322, guid: 9fefb12acbd058949b3979fe292ed786,
         type: 2}
@@ -4178,7 +4178,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1541594171
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4373,11 +4373,11 @@ Prefab:
         type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 2d8df118dd5334f45b26239d0d18ac0e, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 114000012923309650, guid: 9fefb12acbd058949b3979fe292ed786,
         type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 33000013057856322, guid: 9fefb12acbd058949b3979fe292ed786,
         type: 2}
@@ -5219,15 +5219,15 @@ Prefab:
     - target: {fileID: 23000011859122466, guid: 9fefb12acbd058949b3979fe292ed786,
         type: 2}
       propertyPath: m_Materials.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4000011189089912, guid: 9fefb12acbd058949b3979fe292ed786, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -800
+      value: -351
       objectReference: {fileID: 0}
     - target: {fileID: 4000011189089912, guid: 9fefb12acbd058949b3979fe292ed786, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 180
+      value: -200
       objectReference: {fileID: 0}
     - target: {fileID: 4000011189089912, guid: 9fefb12acbd058949b3979fe292ed786, type: 2}
       propertyPath: m_LocalPosition.z
@@ -5261,7 +5261,7 @@ Prefab:
     - target: {fileID: 114000012923309650, guid: 9fefb12acbd058949b3979fe292ed786,
         type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 33000013057856322, guid: 9fefb12acbd058949b3979fe292ed786,
         type: 2}
@@ -5271,7 +5271,7 @@ Prefab:
     - target: {fileID: 114000012923309650, guid: 9fefb12acbd058949b3979fe292ed786,
         type: 2}
       propertyPath: initialSkinName
-      value: leopard
+      value: giraffe
       objectReference: {fileID: 0}
     - target: {fileID: 23000011859122466, guid: 9fefb12acbd058949b3979fe292ed786,
         type: 2}
@@ -5360,11 +5360,11 @@ Prefab:
         type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 2d8df118dd5334f45b26239d0d18ac0e, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 114000012923309650, guid: 9fefb12acbd058949b3979fe292ed786,
         type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 33000013057856322, guid: 9fefb12acbd058949b3979fe292ed786,
         type: 2}
@@ -5411,6 +5411,11 @@ Prefab:
     - target: {fileID: 1000012657863840, guid: 9fefb12acbd058949b3979fe292ed786, type: 2}
       propertyPath: m_Name
       value: Page5Character
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012923309650, guid: 9fefb12acbd058949b3979fe292ed786,
+        type: 2}
+      propertyPath: loop
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9fefb12acbd058949b3979fe292ed786, type: 2}
@@ -5811,11 +5816,11 @@ Prefab:
         type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 2d8df118dd5334f45b26239d0d18ac0e, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 114000012923309650, guid: 9fefb12acbd058949b3979fe292ed786,
         type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 33000013057856322, guid: 9fefb12acbd058949b3979fe292ed786,
         type: 2}
@@ -6032,7 +6037,7 @@ Prefab:
     - target: {fileID: 114000012923309650, guid: 9fefb12acbd058949b3979fe292ed786,
         type: 2}
       propertyPath: initialSkinName
-      value: duck
+      value: cat
       objectReference: {fileID: 0}
     - target: {fileID: 23000011859122466, guid: 9fefb12acbd058949b3979fe292ed786,
         type: 2}
@@ -6189,11 +6194,11 @@ Prefab:
         type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 2d8df118dd5334f45b26239d0d18ac0e, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 114000012923309650, guid: 9fefb12acbd058949b3979fe292ed786,
         type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 33000013057856322, guid: 9fefb12acbd058949b3979fe292ed786,
         type: 2}
@@ -6240,6 +6245,11 @@ Prefab:
     - target: {fileID: 1000012657863840, guid: 9fefb12acbd058949b3979fe292ed786, type: 2}
       propertyPath: m_Name
       value: Page5Character 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012923309650, guid: 9fefb12acbd058949b3979fe292ed786,
+        type: 2}
+      propertyPath: loop
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9fefb12acbd058949b3979fe292ed786, type: 2}
@@ -6488,7 +6498,7 @@ Prefab:
     - target: {fileID: 23000011859122466, guid: 9fefb12acbd058949b3979fe292ed786,
         type: 2}
       propertyPath: m_Materials.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4000011189089912, guid: 9fefb12acbd058949b3979fe292ed786, type: 2}
       propertyPath: m_LocalPosition.x
@@ -6540,7 +6550,7 @@ Prefab:
     - target: {fileID: 114000012923309650, guid: 9fefb12acbd058949b3979fe292ed786,
         type: 2}
       propertyPath: initialSkinName
-      value: leopard
+      value: cat
       objectReference: {fileID: 0}
     - target: {fileID: 23000011859122466, guid: 9fefb12acbd058949b3979fe292ed786,
         type: 2}
@@ -6625,11 +6635,11 @@ Prefab:
         type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 2d8df118dd5334f45b26239d0d18ac0e, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 114000012923309650, guid: 9fefb12acbd058949b3979fe292ed786,
         type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 33000013057856322, guid: 9fefb12acbd058949b3979fe292ed786,
         type: 2}
