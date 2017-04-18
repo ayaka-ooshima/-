@@ -4110,7 +4110,7 @@ MonoBehaviour:
   _isEventExecuting: 0
   _easeType: 33
   _text: {fileID: 1518837802}
-  _targetValue: 0
+  _targetValue: 1
 --- !u!114 &1518837802
 MonoBehaviour:
   m_ObjectHideFlags: 0
