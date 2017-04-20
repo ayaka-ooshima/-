@@ -9,6 +9,7 @@ public class Button : MonoBehaviour
     private bool isNextButton = true;
     //
     private bool isBackButton = false;
+    
 
     // Use this for initialization
     void Start()

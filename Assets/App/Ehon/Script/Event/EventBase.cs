@@ -31,6 +31,11 @@ public abstract class EventBase : MonoBehaviour
 	}
 
 	/// <summary>
+	/// 実行中のコルーチン 
+	/// </summary>
+	private Coroutine _executiingCoroutine;
+
+	/// <summary>
 	/// Occurs when on complete event handler.
 	/// </summary>
 	public event Action<EventBase> OnCompleteEventHandler;
@@ -45,7 +50,11 @@ public abstract class EventBase : MonoBehaviour
 	/// </summary>
 	public void Execute ()
 	{
-		StartCoroutine (Execute_ ());
+		//アクティブ状態かチェック
+		if (gameObject.activeInHierarchy == false) {
+			return;
+		}
+		_executiingCoroutine = StartCoroutine (Execute_ ());
 	}
 
 	/// <summary>
@@ -53,24 +62,24 @@ public abstract class EventBase : MonoBehaviour
 	/// </summary>
 	protected IEnumerator Execute_ ()
 	{
-        //set true 
-        _isEventExecuting = true;
+		//set true 
+		_isEventExecuting = true;
 
-        //遅延待機
-        yield return new WaitForSeconds(_delay);
+		//遅延待機
+		yield return new WaitForSeconds (_delay);
 
-        OnExecute();
+		OnExecute ();
 
-        //実行待機
-        yield return new WaitForSeconds(_duration);
+		//実行待機
+		yield return new WaitForSeconds (_duration);
 
-        Complete();
-    }
+		Complete ();
+	}
 
-    /// <summary>
-    /// Raises the execute event.
-    /// </summary>
-    protected abstract void OnExecute ();
+	/// <summary>
+	/// Raises the execute event.
+	/// </summary>
+	protected abstract void OnExecute ();
 
 	/// <summary>
 	/// Raises the complete event.
@@ -82,11 +91,19 @@ public abstract class EventBase : MonoBehaviour
 	/// </summary>
 	public void Complete ()
 	{
+		//null check
+		if (_executiingCoroutine != null) {
+			//コルーチンを停止
+			StopCoroutine (_executiingCoroutine);
+		}
 		//set false
 		_isEventExecuting = false;
 		//on complete
 		OnComplete ();	
-		//on complete
-		OnCompleteEventHandler.Invoke (this);
+		//null check
+		if (OnCompleteEventHandler != null) {
+			//on complete
+			OnCompleteEventHandler.Invoke (this);
+		}
 	}
 }

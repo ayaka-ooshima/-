@@ -40,6 +40,7 @@ public class CharacterAnimationEvent :  EventBase
 	/// </summary>
 	public override void Initialize ()
 	{
+		_skeletonAnimation = GetComponent<SkeletonAnimation> ();
 	}
 
 	/// <summary>
