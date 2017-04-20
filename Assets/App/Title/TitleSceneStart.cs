@@ -5,6 +5,10 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// 
+/// </summary>
+[RequireComponent(typeof(Page))]
 public class TitleSceneStart : UIBehaviour {
 
     protected override void Start()
@@ -12,7 +16,7 @@ public class TitleSceneStart : UIBehaviour {
         base.Start();
 
         //
-        GetComponent<Button>().onClick.AddListener(OnClick);
+        GetComponent<Page>().onClick.AddListener(OnClick);
     }
 
     // Use this for initialization
@@ -21,8 +25,5 @@ public class TitleSceneStart : UIBehaviour {
         SceneManager.LoadScene("EhonSerect");
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+	
 }
