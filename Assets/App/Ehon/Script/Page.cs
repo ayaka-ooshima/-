@@ -77,12 +77,14 @@ public class Page : MonoBehaviour
 	{
 		//再生中なら
 		if (_isEventExecuting) {
+            
 			//log
 			Debug.LogFormat ("イベントを強制終了! EventOrder:{0}", _currentEventOrder);
 			//全て完了させる
 			foreach (var e in _eventOrderToEventList[_currentEventOrder]) {
 				e.Complete ();
 			}
+            
 			//return
 			return;
 		}
