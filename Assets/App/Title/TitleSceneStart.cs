@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 /// <summary>
 /// 
 /// </summary>
-[RequireComponent(typeof(Page))]
+[RequireComponent(typeof(Button))]
 public class TitleSceneStart : UIBehaviour {
 
     protected override void Start()
@@ -16,7 +16,7 @@ public class TitleSceneStart : UIBehaviour {
         base.Start();
 
         //
-        GetComponent<Page>().onClick.AddListener(OnClick);
+        GetComponent<Button>().onClick.AddListener(OnClick);
     }
 
     // Use this for initialization

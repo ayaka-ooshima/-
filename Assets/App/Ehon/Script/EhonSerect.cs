@@ -5,7 +5,8 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
-public class TitleSceneStart : UIBehaviour {
+[RequireComponent(typeof(Button))]
+public class EhonSerect : UIBehaviour {
 
     protected override void Start()
     {
