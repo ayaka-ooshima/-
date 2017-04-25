@@ -130,23 +130,32 @@ public class Page : MonoBehaviour
 			e.OnCompleteEventHandler += AnimationCompleteDetection;
 		}
 	}
+    /// <summary>
+    /// アニメーションの終了判定 
+    /// </summary>
+    /// <param name="et">Et.</param>
+    private void AnimationCompleteDetection(EventBase et)
+    {
+        //イベント実行中ではないなら
+        if (_isEventExecuting == false)
+        {
+            //リターン(この先の処理を呼ばない
+            return;
+        }
+        //全て実行終了したかチェック
+        foreach (var e in _eventOrderToEventList[et.EventOrder])
+        {
+            if (e.IsEventExecuting)
+            {
+                return;
+            }
+        }
+        //イベント実行をfalse
+        _isEventExecuting = false;
+        //イベント番号の更新
+        _currentEventOrder += 1;
+    }
 
-	/// <summary>
-	/// アニメーションの終了判定 
-	/// </summary>
-	/// <param name="et">Et.</param>
-	private void AnimationCompleteDetection (EventBase et)
-	{
-		foreach (var e in _eventOrderToEventList[et.EventOrder]) {
-			if (e.IsEventExecuting) {
-				return;
-			}
-		}
-		//イベント実行をfalse
-		_isEventExecuting = false;
-		//イベント番号の更新
-		_currentEventOrder += 1;
-	}
 
 	/// <summary>
 	/// 全てのイベントを完了させる

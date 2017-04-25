@@ -11,3 +11,11 @@ EditorBuildSettings:
     path: Assets/App/Scenes/EhonSerect.unity
   - enabled: 1
     path: Assets/App/Scenes/Ehon.unity
+  - enabled: 1
+    path: Assets/App/Scenes/One.unity
+  - enabled: 1
+    path: Assets/App/Scenes/Two.unity
+  - enabled: 1
+    path: Assets/App/Scenes/Three.unity
+  - enabled: 1
+    path: Assets/App/Scenes/Four.unity
