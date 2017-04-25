@@ -504,7 +504,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &132092937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2907,12 +2907,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventOrder: 2
-  _duration: 1
+  _duration: 3
   _delay: 0
   _isEventExecuting: 0
   _easeType: 1
   _initScale: {x: 0, y: 0, z: 0}
-  _targetScale: {x: 500, y: 980, z: 0}
+  _targetScale: {x: 500, y: 1000, z: 0}
 --- !u!114 &1145038947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2992,8 +2992,8 @@ GameObject:
   - component: {fileID: 1262502261}
   - component: {fileID: 1262502264}
   - component: {fileID: 1262502263}
-  - component: {fileID: 1262502262}
   - component: {fileID: 1262502265}
+  - component: {fileID: 1262502262}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -3031,12 +3031,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventOrder: 1
-  _duration: 1
+  _duration: 0
   _delay: 0
   _isEventExecuting: 0
-  _easeType: 33
+  _easeType: 1
   _text: {fileID: 1262502263}
-  _targetValue: 1
+  _targetValue: 0
 --- !u!114 &1262502263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3049,7 +3049,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.99264705, g: 0.9609347, b: 0.5328179, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3093,7 +3093,7 @@ MonoBehaviour:
   _isEventExecuting: 0
   _easeType: 1
   _text: {fileID: 1262502263}
-  _targetValue: 0
+  _targetValue: 1
 --- !u!1 &1328297664
 GameObject:
   m_ObjectHideFlags: 0
@@ -3653,7 +3653,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a43ebb456fe234909be1fabc60c19776, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventOrder: 3
+  _eventOrder: 2
   _duration: 1
   _delay: 0
   _isEventExecuting: 0
@@ -3691,7 +3691,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c2d1e786fe9546fd93e3e442bd3a540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventOrder: 0
+  _eventOrder: 1
   _duration: 0
   _delay: 0
   _isEventExecuting: 0
@@ -3838,18 +3838,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1799251399}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf22073e5948e43639e4293b6913cc0e, type: 3}
+  m_Script: {fileID: 11500000, guid: a43ebb456fe234909be1fabc60c19776, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _eventOrder: 2
-  _duration: 0
+  _duration: 1
   _delay: 0
   _isEventExecuting: 0
-  _easeType: 1
-  _isLocal: 1
-  _targetPosition: {x: 101, y: 0, z: 0}
-  _targetRotation: {x: 0, y: 0, z: 0}
-  _targetScale: {x: 100, y: 100, z: 100}
+  _skeletonAnimation: {fileID: 1799251400}
+  _startAnimationName: jump
+  _isLoopStartAnimation: 0
+  _endAnimationName: idle
+  _isLoopEndAnimation: 1
 --- !u!114 &1799251402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3899,26 +3899,6 @@ MonoBehaviour:
   _easeType: 1
   _skeletonAnimation: {fileID: 1799251400}
   _targetFadeValue: 0
---- !u!114 &1799251409
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1799251399}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf22073e5948e43639e4293b6913cc0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _eventOrder: 2
-  _duration: 1
-  _delay: 0
-  _isEventExecuting: 0
-  _easeType: 1
-  _isLocal: 1
-  _targetPosition: {x: 101, y: 0, z: 0}
-  _targetRotation: {x: 0, y: 0, z: 0}
-  _targetScale: {x: 100, y: 100, z: 100}
 --- !u!1 &1800708507
 GameObject:
   m_ObjectHideFlags: 0
@@ -4170,7 +4150,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1845655777
 MonoBehaviour:
   m_ObjectHideFlags: 0
