@@ -4,6 +4,8 @@ using UnityEngine;
 using System;
 using DG.Tweening;
 using UnityEngine.VR;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PageController : MonoBehaviour
 {
@@ -16,6 +18,11 @@ public class PageController : MonoBehaviour
     //現在のページ
     [SerializeField]
     private Page _currentPage;
+    /// <summary>
+    /// 絵本選択ボタン 
+    /// </summary>
+    [SerializeField]
+    private Button _ehonSelectButton;
 
     /// <summary>
     /// ページを切り替えるアニメーション
@@ -29,6 +36,8 @@ public class PageController : MonoBehaviour
     /// </summary>
     private void Start()
     {
+        //絵本選択ボタンを非表示
+        _ehonSelectButton.gameObject.SetActive(false);
         //現在のページ数を設定
         _currentPageNumber = 1;
         //ヒエラルキー階層の一番下に移動させる
@@ -44,10 +53,11 @@ public class PageController : MonoBehaviour
             //1ページ目なら
             if (page.PageNum == 1)
             {
+               
+                //アクティブ化
+                page.gameObject.SetActive(true);
                 //初期化
                 page.Initialize();
-                //アクティブ化ける
-                page.gameObject.SetActive(true);
             }
             else
             {
@@ -88,7 +98,8 @@ public class PageController : MonoBehaviour
         //最初のページなら
         if (_pageList.Count == _currentPageNumber)
         {
-
+            //絵本選択ボタンを表示
+            _ehonSelectButton.gameObject.SetActive(true);
             return;
         }
         //ページ数を増やす
@@ -147,5 +158,12 @@ public class PageController : MonoBehaviour
                 //現在のページい設定
                 _currentPage = prevPage;
             });
+    }
+    /// <summary>
+    /// 絵本選択ボタンを押した時に呼ばれる 
+    /// </summary>
+    public void OnEhonSelectButtonTap()
+    {
+        SceneManager.LoadScene("EhonSerect");
     }
 }
