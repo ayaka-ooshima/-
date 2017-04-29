@@ -1277,7 +1277,7 @@ Prefab:
     - target: {fileID: 114000012923309650, guid: 9fefb12acbd058949b3979fe292ed786,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 33000013057856322, guid: 9fefb12acbd058949b3979fe292ed786,
         type: 2}
@@ -1473,7 +1473,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -284.00024, y: 318}
+  m_AnchoredPosition: {x: -284.00024, y: 240}
   m_SizeDelta: {x: 1000, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &284352812
@@ -2762,7 +2762,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &679804469
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2964,7 +2964,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42959d04160ec5b4cbf919f7d5e986e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventOrder: 5
+  _eventOrder: 4
   _duration: 1
   _delay: 0
   _isEventExecuting: 0
@@ -3033,7 +3033,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42959d04160ec5b4cbf919f7d5e986e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventOrder: 4
+  _eventOrder: 3
   _duration: 1
   _delay: 0
   _isEventExecuting: 0
@@ -3831,7 +3831,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -257.99988, y: 318.99997}
+  m_AnchoredPosition: {x: -257.99988, y: 156}
   m_SizeDelta: {x: 1000, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &973332575
@@ -4213,7 +4213,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -310, y: -42}
+  m_AnchoredPosition: {x: -310, y: 49}
   m_SizeDelta: {x: 1000, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1059531612
@@ -4447,7 +4447,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -288.00015, y: 27.000067}
+  m_AnchoredPosition: {x: -288.00015, y: 333}
   m_SizeDelta: {x: 1000, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1094539501
@@ -4569,7 +4569,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\u3046\u3055\u304E\u3055\u3093\u304C\u304C\u3057\u3066\u305F\u3088\uFF5E"
+  m_Text: "\u3046\u3055\u304E\u3055\u3093\u304C\u3001\n\u3000\u3042\u3063\u3061\u3067\u3055\u304C\u3057\u3066\u305F\u3088\uFF5E"
 --- !u!222 &1094539507
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4695,7 +4695,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42959d04160ec5b4cbf919f7d5e986e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventOrder: 4
+  _eventOrder: 3
   _duration: 1
   _delay: 0
   _isEventExecuting: 0
@@ -4713,7 +4713,7 @@ MonoBehaviour:
   m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0.97794116, g: 0.9759575, b: 0.9060337, a: 0.5}
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
 --- !u!223 &1156644636
@@ -4764,7 +4764,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42959d04160ec5b4cbf919f7d5e986e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventOrder: 3
+  _eventOrder: 2
   _duration: 1
   _delay: 0
   _isEventExecuting: 0
@@ -5783,7 +5783,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\u3071\u3093\u3060\u3055\u3093\uFF01\n\u3046\u3055\u304E\u3055\u3093\u3092\u3057\u308A\u307E\u305B\u3093\u304B\uFF1F"
+  m_Text: "\u30D1\u30F3\u30C0\u3055\u3093\uFF01\n\u3046\u3055\u304E\u3055\u3093\u3092\u3057\u308A\u307E\u305B\u3093\u304B\uFF1F"
 --- !u!222 &1347445640
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6389,7 +6389,7 @@ MonoBehaviour:
   _duration: 1
   _delay: 0
   _isEventExecuting: 0
-  _skeletonAnimation: {fileID: 0}
+  _skeletonAnimation: {fileID: 1522572203}
   _startAnimationName: jump
   _isLoopStartAnimation: 0
   _endAnimationName: idle
@@ -6468,6 +6468,26 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1831650768}
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
+--- !u!114 &1522572206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1522572196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a43ebb456fe234909be1fabc60c19776, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _eventOrder: 6
+  _duration: 1
+  _delay: 0
+  _isEventExecuting: 0
+  _skeletonAnimation: {fileID: 1522572203}
+  _startAnimationName: jump
+  _isLoopStartAnimation: 0
+  _endAnimationName: idle
+  _isLoopEndAnimation: 1
 --- !u!1 &1532212170
 GameObject:
   m_ObjectHideFlags: 0
@@ -6753,7 +6773,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c99a012844b9b4c8bad408dbfeb1552a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventOrder: 4
+  _eventOrder: 5
   _duration: 1
   _delay: 0
   _isEventExecuting: 0
@@ -6907,7 +6927,7 @@ Prefab:
     - target: {fileID: 114000012923309650, guid: 9fefb12acbd058949b3979fe292ed786,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 33000013057856322, guid: 9fefb12acbd058949b3979fe292ed786,
         type: 2}
@@ -7025,7 +7045,7 @@ MonoBehaviour:
   _delay: 0
   _isEventExecuting: 0
   _easeType: 1
-  _targetLocalPosition: {x: 260, y: 0, z: 0}
+  _targetLocalPosition: {x: 300, y: 0, z: 0}
 --- !u!114 &1561783038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7057,7 +7077,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a43ebb456fe234909be1fabc60c19776, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventOrder: 1
+  _eventOrder: 3
   _duration: 1
   _delay: 0
   _isEventExecuting: 0
@@ -7473,7 +7493,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -288.00015, y: 183}
+  m_AnchoredPosition: {x: -262, y: 339}
   m_SizeDelta: {x: 1000, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1695987383
@@ -7595,7 +7615,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\u305D\u3046\u306A\u306E\uFF1F\n\u304A\u3057\u3048\u3066\u304F\u308C\u3066\u3042\u308A\u304C\u3068\u3046\uFF01"
+  m_Text: "\u305D\u3046\u306A\u306E\uFF1F\n\u304A\u3057\u3048\u3066\u304F\u308C\u3066\u3042\u308A\u304C\u3068\u3046!"
 --- !u!222 &1695987389
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7823,7 +7843,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1767906975
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8068,7 +8088,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -288.00012, y: 27}
+  m_AnchoredPosition: {x: -288.00012, y: -260}
   m_SizeDelta: {x: 1000, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1785575850
@@ -8868,6 +8888,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventOrder: 3
+  _duration: 1
+  _delay: 0
+  _isEventExecuting: 0
+  _skeletonAnimation: {fileID: 1839300195}
+  _startAnimationName: jump
+  _isLoopStartAnimation: 0
+  _endAnimationName: idle
+  _isLoopEndAnimation: 1
+--- !u!114 &1839300203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1839300194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a43ebb456fe234909be1fabc60c19776, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _eventOrder: 5
   _duration: 1
   _delay: 0
   _isEventExecuting: 0
@@ -10052,6 +10092,26 @@ MonoBehaviour:
   _isLoopStartAnimation: 0
   _endAnimationName: idle
   _isLoopEndAnimation: 1
+--- !u!114 &2020494269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2020494259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a43ebb456fe234909be1fabc60c19776, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _eventOrder: 5
+  _duration: 1
+  _delay: 0
+  _isEventExecuting: 0
+  _skeletonAnimation: {fileID: 2020494260}
+  _startAnimationName: jump
+  _isLoopStartAnimation: 0
+  _endAnimationName: idle
+  _isLoopEndAnimation: 1
 --- !u!1 &2053447545
 GameObject:
   m_ObjectHideFlags: 0
@@ -10337,7 +10397,7 @@ Prefab:
     - target: {fileID: 114000012923309650, guid: 9fefb12acbd058949b3979fe292ed786,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 33000013057856322, guid: 9fefb12acbd058949b3979fe292ed786,
         type: 2}
@@ -10437,7 +10497,7 @@ MonoBehaviour:
   _delay: 0
   _isEventExecuting: 0
   _easeType: 1
-  _targetLocalPosition: {x: -150, y: 0, z: 0}
+  _targetLocalPosition: {x: -200, y: 0, z: 0}
 --- !u!114 &2085518569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10470,6 +10530,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventOrder: 1
+  _duration: 1
+  _delay: 0
+  _isEventExecuting: 0
+  _skeletonAnimation: {fileID: 2085518566}
+  _startAnimationName: jump
+  _isLoopStartAnimation: 0
+  _endAnimationName: idle
+  _isLoopEndAnimation: 1
+--- !u!114 &2085518573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2085518565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a43ebb456fe234909be1fabc60c19776, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _eventOrder: 3
   _duration: 1
   _delay: 0
   _isEventExecuting: 0
