@@ -5,11 +5,10 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
-/// <summary>
-/// 
-/// </summary>
+
 [RequireComponent(typeof(Button))]
-public class TitleSceneStart : UIBehaviour {
+public class TitleSceneStart : UIBehaviour
+{
 
     protected override void Start()
     {
@@ -20,7 +19,8 @@ public class TitleSceneStart : UIBehaviour {
     }
 
     // Use this for initialization
-    void OnClick () {
+    void OnClick ()
+    {
         //
         SceneManager.LoadScene("EhonSerect");
 	}
